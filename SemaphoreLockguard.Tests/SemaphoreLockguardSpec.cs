@@ -17,7 +17,7 @@ namespace SemaphoreLockguard.Tests
             using (var semalock = new SemaphoreLockguard(sema, TimeSpan.FromSeconds(1)))
             {
                 // Assert
-                semalock.IsGotHandle.Should().BeTrue();
+                semalock.IsGotOne.Should().BeTrue();
             }
         }
 
@@ -32,7 +32,7 @@ namespace SemaphoreLockguard.Tests
             using (var semalock = new SemaphoreLockguard(sema, TimeSpan.FromSeconds(1)))
             {
                 // Assert
-                semalock.IsGotHandle.Should().BeFalse();
+                semalock.IsGotOne.Should().BeFalse();
             }
         }
     }

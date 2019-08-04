@@ -11,7 +11,7 @@ namespace ConsoleApp
 
             using (var semalock = new SemaphoreLockguard.SemaphoreLockguard(sema, TimeSpan.FromSeconds(1)))
             {
-                if (semalock.IsGotHandle == false)
+                if (semalock.IsGotOne == false)
                 {
                     Console.WriteLine("2개 초과의 프로그램이 실행 중입니다.");
                     return;

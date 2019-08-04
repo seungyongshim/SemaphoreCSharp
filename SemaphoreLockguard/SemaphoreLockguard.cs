@@ -6,13 +6,13 @@ namespace SemaphoreLockguard
     public class SemaphoreLockguard : IDisposable
     {
         public Semaphore Semaphore { get; }
-        public bool IsGotHandle { get; }
+        public bool IsGotOne { get; }
 
 
         public SemaphoreLockguard(Semaphore semaphore, TimeSpan timeout)
         {
             Semaphore = semaphore;
-            IsGotHandle = semaphore.WaitOne(timeout);
+            IsGotOne = semaphore.WaitOne(timeout);
         }
         
         #region IDisposable Support
@@ -25,7 +25,7 @@ namespace SemaphoreLockguard
             {
                 if (disposing)
                 {
-                    if (IsGotHandle == true)
+                    if (IsGotOne == true)
                     {
                         Semaphore.Release();
                     }
